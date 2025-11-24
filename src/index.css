@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Button ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 10%, rgba(255,255,255,0) 40%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 400ms ease, opacity 600ms ease;
+}
+.ripple:active:after {
+  transform: scale(4);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Shimmer for skeletons */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  translate: -100% 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  100% { translate: 100% 0; }
+}
